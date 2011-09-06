@@ -5,6 +5,7 @@ if(isset($_SESSION['user_id'])){
 }
 include("conection.php");
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
