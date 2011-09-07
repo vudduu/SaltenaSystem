@@ -5,6 +5,7 @@ DROP TABLE activities;
 DROP TABLE activities_products
 DROP TABLE preferences;
 DROP TABLE orders;
+DROP TABLE times_in_out;
 
 CREATE TABLE modes(
 	mode_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
@@ -65,5 +66,12 @@ CREATE TABLE orders (
 	FOREIGN KEY (prod_id) REFERENCES products(prod_id) ,
 	FOREIGN KEY (act_id) REFERENCES activities(act_id) ,
 	PRIMARY KEY (user_id, prod_id, ord_date)
+) ENGINE = MYISAM;
+
+CREATE TABLE times_in_out (
+	user_id INT NOT NULL PRIMARY KEY ,
+	time_mark TIME NOT NULL ,
+	time_date DATE NULL ,
+	FOREIGN KEY (user_id) REFERENCES users(user_id)
 ) ENGINE = MYISAM;
 
