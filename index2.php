@@ -11,6 +11,7 @@ $interface::connect();
 	<title>Vudduu's Saltena System</title>
 	<link href="inc/css/reset.css" rel="stylesheet" type="text/css">
 	<link href="inc/css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="inc/js/functions.js"></script>
 </head>
 <body onload="defaultjs(); setInterval('defaultjs()', 2000)" >
 	<div id="top_container">
