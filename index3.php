@@ -37,9 +37,9 @@ $interface::connect();
 				<a class="button_plus" href="#" onClick="add_pollo();"></a>
 				<span class="count" name="pollo" id="pollo">
 				<?php
-					$table = $interface::queryTable("select * from rel_users_products where user_id='".$_SESSION['user_id']."' and prod_id=1 and date='".date("Y-m-d")."'");
+					$table = $interface::queryTable("select * from orders where user_id='".$_SESSION['user_id']."' and prod_id=1 and ord_date='".date("Y-m-d")."'");
 					if(0 < sizeof($table)){
-						echo $table[0]['quantity'];
+						echo $table[0]['ord_quantity'];
 					}
 					else{
 						echo "0";
@@ -52,9 +52,9 @@ $interface::connect();
 				<a class="button_plus" href="#" onClick="add_carne();"></a>
 				<span class="count" name="carne" id="carne">
 				<?php
-					$table = $interface::queryTable("select * from rel_users_products where user_id='".$_SESSION['user_id']."' and prod_id=2 and date='".date("Y-m-d")."'");
+					$table = $interface::queryTable("select * from orders where user_id='".$_SESSION['user_id']."' and prod_id=2 and ord_date='".date("Y-m-d")."'");
 					if(0 < sizeof($table)){
-						echo $table[0]['quantity'];
+						echo $table[0]['ord_quantity'];
 					}
 					else{
 						echo "0";
@@ -67,9 +67,9 @@ $interface::connect();
 				<a class="button_plus" href="#" onClick="add_hoja();"></a>
 				<span class="count" name="hoja" id="hoja">
 				<?php
-					$table = $interface::queryTable("select * from rel_users_products where user_id='".$_SESSION['user_id']."' and prod_id=3 and date='".date("Y-m-d")."'");
+					$table = $interface::queryTable("select * from orders where user_id='".$_SESSION['user_id']."' and prod_id=3 and ord_date='".date("Y-m-d")."'");
 					if(0 < sizeof($table)){
-						echo $table[0]['quantity'];
+						echo $table[0]['ord_quantity'];
 					}
 					else{
 						echo "0";

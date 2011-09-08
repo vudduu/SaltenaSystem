@@ -69,4 +69,3 @@ include("conection.php");
 	</body>
 </html>
 
-

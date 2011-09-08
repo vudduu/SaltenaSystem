@@ -1,8 +1,8 @@
 function defaultjs(){
-	obtainTicon1();
-	obtainTicon2();
-	obtainTicon3();
-	obtainTicon4();
+	//obtainTicon1();
+	//obtainTicon2();
+	//obtainTicon3();
+	//obtainTicon4();
 }
 
 /********************* PEDIDOS *********************/
@@ -52,8 +52,8 @@ function saveOrder(){
 	numPollo = document.getElementById("pollo").innerHTML.split(" ")[0];
 	numCarne = document.getElementById("carne").innerHTML.split(" ")[0];
 	numHoja = document.getElementById("hoja").innerHTML.split(" ")[0];
-	user = document.getElementById("user_id").innerHTML;
-	xmlhttp.open("GET", "queries.php?pollo="+numPollo+"&carne="+numCarne+"&hoja="+numHoja+"&user="+user, true);
+	user_id = document.getElementById("user_id").innerHTML;
+	xmlhttp.open("GET", "queries.php?pollo="+numPollo+"&carne="+numCarne+"&hoja="+numHoja+"&user_id="+user, true);
 	xmlhttp.send();
 }
 

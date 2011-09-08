@@ -45,25 +45,34 @@ $interface::connect();
 					if($_POST['user_name'] == null || !isset($_POST['user_name'])){ echo $_SESSION['user_name']; }
 					else{ echo $_POST['user_name']; }
 					?>" ></td></tr>
+				<tr><td>Date of Birth *:</td><td><input name = "user_date" type = "text" value="<?php
+					if($_POST['user_date'] == null || !isset($_POST['user_date'])){ echo $_SESSION['user_date']; }
+					else{ echo $_POST['user_date']; }
+					?>" ></td></tr>
 				<tr><td><input type = "submit" name = "submit" value = "Submit"/></td></tr>
 				</table>
 			</form>
 		</div>
 	<?php
 	if(isset($_POST['submit'])){
+		$flag = true;
 		if($_POST['user_login'] == null){
-			echo "<b>Please the 'Login' is required.</b></br>";
+			echo "<b>Please the 'Login' is required.</b></br>"; $flag = false;
 		}
 		if($_POST['password1'] == null){
-			echo "<b>Please the 'Password' is required.</b></br>";
+			echo "<b>Please the 'Password' is required.</b></br>"; $flag = false;
 		}
 		if($_POST['password2'] == null){
-			echo "<b>Please confirm the 'Password'.</b></br>";
+			echo "<b>Please confirm the 'Password'.</b></br>"; $flag = false;
 		}
 		if($_POST['user_name'] == null){
-			echo "<b>Please the 'Name' is required.</b></br>";
+			echo "<b>Please the 'Name' is required.</b></br>"; $flag = false;
 		}
-		else{
+		if($_POST['user_date'] == null){
+			echo "<b>Please the 'Date' is required.</b></br>"; $flag = false;
+		}
+		//user_id	user_name	user_login	user_pass	user_date	user_money	mode_id
+		if($flag){
 			if($_POST['password1'] != $_POST['password2']){
 				echo "<b>The password confirmation is not equal.</b></br>";
 			}
@@ -73,7 +82,8 @@ $interface::connect();
 				$sql = "update users set ";
 				$sql.= "user_name = '".$_POST['user_name']."', ";
 				$sql.= "user_pass = '".$_POST['password1']."', ";
-				$sql.= "user_login = '".$_POST['user_login']."' ";
+				$sql.= "user_login = '".$_POST['user_login']."', ";
+				$sql.= "user_date = '".$_POST['user_date']."' ";
 				$sql.= "where user_id = '".$_SESSION['user_id']."' ";
 				$interface::queryExe($sql);
 				$data = $interface::query("select * from users where user_id = '".$_POST['user']."'");

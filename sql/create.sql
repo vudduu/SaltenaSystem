@@ -2,7 +2,7 @@ DROP TABLE modes;
 DROP TABLE users;
 DROP TABLE products;
 DROP TABLE activities;
-DROP TABLE activities_products
+DROP TABLE activities_products;
 DROP TABLE preferences;
 DROP TABLE orders;
 DROP TABLE times_in_out;
@@ -13,7 +13,7 @@ CREATE TABLE modes(
 ) ENGINE = MYISAM;
 
 CREATE TABLE users (
-	user_id INT NOT NULL PRIMARY KEY ,
+	user_id VARCHAR( 10 ) NOT NULL PRIMARY KEY ,
 	user_name VARCHAR( 30 ) NOT NULL ,
 	user_login VARCHAR( 10 ) NULL ,
 	user_pass VARCHAR( 10 ) NULL ,
@@ -35,7 +35,7 @@ CREATE TABLE activities (
 	act_name VARCHAR( 20 ) NOT NULL ,
 	act_ini DATETIME NOT NULL ,
 	act_end DATETIME NOT NULL ,
-	user_id INT NOT NULL ,
+	user_id VARCHAR( 10 ) NOT NULL ,
 	FOREIGN KEY (user_id) REFERENCES users(user_id)
 ) ENGINE = MYISAM;
 
@@ -48,7 +48,7 @@ CREATE TABLE activities_products (
 ) ENGINE = MYISAM;
 
 CREATE TABLE preferences (
-	user_id INT NOT NULL ,
+	user_id VARCHAR( 10 ) NOT NULL ,
 	prod_id INT NOT NULL ,
 	pref_quantity INT NOT NULL ,
 	FOREIGN KEY (user_id) REFERENCES users(user_id) ,
@@ -57,7 +57,7 @@ CREATE TABLE preferences (
 ) ENGINE = MYISAM;
 
 CREATE TABLE orders (
-	user_id INT NOT NULL ,
+	user_id VARCHAR( 10 ) NOT NULL ,
 	prod_id INT NOT NULL ,
 	act_id INT NULL ,
 	ord_quantity INT NOT NULL ,
@@ -69,7 +69,7 @@ CREATE TABLE orders (
 ) ENGINE = MYISAM;
 
 CREATE TABLE times_in_out (
-	user_id INT NOT NULL PRIMARY KEY ,
+	user_id VARCHAR( 10 ) NOT NULL PRIMARY KEY ,
 	time_mark TIME NOT NULL ,
 	time_date DATE NULL ,
 	FOREIGN KEY (user_id) REFERENCES users(user_id)
