@@ -17,22 +17,22 @@ $interface::connect();
 		<script type="text/javascript" src="inc/js/functions.js"></script>
 	</head>
 	<body>
-		<div id="top_container" >
+		<div id="top_container" class="trans">
 			<div id="top_left">
 				<h4>Time: <?php echo date("H:i:s"); ?></h4>
 				<h4>Balance: <?php echo $_SESSION['user_money'] ?>$</h4>
 			</div>
 			<div id="top_center">
-				<h1>Saltena System</h1>
+				<h1>S-System</h1>
 				<?php if(isset($_SESSION['user_login'])) echo "<h2><a href='index2.php'>Ticon</a></h2>"; ?>
 			</div>
 			<div id="top_right">
 				<h4><a href="logout.php">Logout</a></h4>
 				<h4><span id="user_id"><?php echo $_SESSION['user_login']; ?></span></h4>
-				<?php if($_SESSION['admin_today'] == 1){ echo "<a href='admin.php' >Administrator</a>"; } ?>
+				<?php if($_SESSION['user_admin'] == 1){ echo "<h4><a href='admin.php' >Administrator</a></h4>"; } ?>
 			</div>
 		</div>
-		<div id="body_container">
+		<div id="body_container" class="trans">
 			<form name = "form" method = "post" action = "edit_user.php">
 				<table>
 				<tr><td>Login *:</td><td><input name = "user_login" type = "text" value="<?php

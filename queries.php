@@ -1,12 +1,15 @@
 <?php
 include("conection.php");
+include("orders.php");
+include("users.php");
 
 $interface = new Conection();
 $interface::connect();
 $orders_interface = new Orders();
+$users_interface = new Users();
 
 if($_GET['usersTable'] == 1) {
-	$table = $users_interface.table_users_orders($interface);
+	$table = $users_interface::table_users_orders($interface);
 	$totalPollo = 0;
 	$totalCarne = 0;
 	$totalHoja = 0;
@@ -30,14 +33,14 @@ if($_GET['usersTable'] == 1) {
 }
 else{
 	if(0 >= sizeof($interface::queryTable("select * from orders where user_id='".$_GET['user']."' and prod_id=1 and ord_date='".date("Y-m-d")."'"))){
-		$orders_interface.insert($interface, $_GET['user_id'], 1, "NULL", $_GET['pollo'], date("Y-m-d"));
-		$orders_interface.insert($interface, $_GET['user_id'], 2, "NULL", $_GET['carne'], date("Y-m-d"));
-		$orders_interface.insert($interface, $_GET['user_id'], 3, "NULL", $_GET['hoja'], date("Y-m-d"));
+		$orders_interface::insert($interface, $_GET['user_id'], 1, "NULL", $_GET['pollo'], date("Y-m-d"));
+		$orders_interface::insert($interface, $_GET['user_id'], 2, "NULL", $_GET['carne'], date("Y-m-d"));
+		$orders_interface::insert($interface, $_GET['user_id'], 3, "NULL", $_GET['hoja'], date("Y-m-d"));
 	}
 	else{
-		$orders_interface.update_quantity($interface, $_GET['user_id'], 1, $_GET['pollo'], date("Y-m-d"));
-		$orders_interface.update_quantity($interface, $_GET['user_id'], 2, $_GET['carne'], date("Y-m-d"));
-		$orders_interface.update_quantity($interface, $_GET['user_id'], 3, $_GET['hoja'], date("Y-m-d"));
+		$orders_interface::update_quantity($interface, $_GET['user_id'], 1, $_GET['pollo'], date("Y-m-d"));
+		$orders_interface::update_quantity($interface, $_GET['user_id'], 2, $_GET['carne'], date("Y-m-d"));
+		$orders_interface::update_quantity($interface, $_GET['user_id'], 3, $_GET['hoja'], date("Y-m-d"));
 	}
 }
 

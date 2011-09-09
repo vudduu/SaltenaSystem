@@ -8,13 +8,13 @@ $interface::connect();
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Vudduu's Saltena System</title>
+	<title>S-System</title>
 	<link href="inc/css/reset.css" rel="stylesheet" type="text/css">
 	<link href="inc/css/style.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="inc/js/functions.js"></script>
 </head>
-<body onload="defaultjs(); setInterval('defaultjs()', 2000)" >
-	<div id="top_container">
+<body>
+	<div id="top_container" class="trans">
 		<div id="top_left">
 			<h4>Time: 9:24 am</h4>
 			<h4>Balance: <?php echo $_SESSION['user_money'] ?>$</h4>
@@ -26,13 +26,12 @@ $interface::connect();
 		<div id="top_right">
 			<h4><a href="logout.php">Logout</a></h4>
 			<h4><a href="edit_user.php"><?php echo $_SESSION['user_login'] ?></a></h4>
-			<?php if($_SESSION['admin_today'] == 1){ echo "<a href='admin.php' >Administrator</a>"; } ?>
+			<?php if($_SESSION['user_admin'] == 1){ echo "<h4><a href='admin.php' >Administrator</a></h4>"; } ?>
 		</div>
 	</div>
-	<div id="body_container">
+	<div id="body_container" class="trans">
 		<table>
 			<tr><th>CodeRoad Out</th><th>CodeRoad In</th><th>Lazar Out</th><th>Lazar In</th></tr>
-			<tr><td><span id="coderoadout"></span></td><td><span id="coderoadin"></span></td><td><span id="lazarout"></span></td><td><span id="lazarin"></span></td></tr>
 			<?php
 			//echo "<tr><th>Name</th><th>Time</th></tr>";
 			//$data = $interface::queryTable("select * from users ORDER BY user_name");
@@ -42,14 +41,13 @@ $interface::connect();
 			?>
 		</table>
 	</div>
-	<div id="footer_container">
-	</div>
+	<!-- <div id="footer_container"></div> -->
 </body>
 </html>
 <?php
 }
 else{
-	echo "<h1>Please!, you are not a hacker with this!<h1>";
+	echo "<meta http-equiv=refresh content=0;URL=index.php>";
 }
 ?>
 

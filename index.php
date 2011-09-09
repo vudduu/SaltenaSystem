@@ -15,12 +15,12 @@ include("conection.php");
 		<script type="text/javascript" src="inc/js/functions.js"></script>
 	</head>
 	<body>
-		<div id="top_container" >
+		<div id="top_container" class="trans">
 			<div id="top_left"><h4>Time: <?php echo date("H:i:s"); ?></h4></div>
 			<div id="top_center"><h1>Saltena System</h1></div>
 			<div id="top_right"></div>
 		</div>
-		<div id="body_container">
+		<div id="body_container" class="trans">
 			<form name = "form" method = "post" action = "index.php">
 				<table>
 					<tr><td>Login   :</td><td><input name = "user" type = "text"></td></tr>
@@ -54,13 +54,13 @@ include("conection.php");
 				echo "<b>The password is wrong</b>";
 			}
 			else{
-				$_SESSION['user_id']		= $data[0]['user_id'];
-				$_SESSION['user_login']		= $data[0]['user_login'];
-				$_SESSION['user_name']		= $data[0]['user_name'];
-				$_SESSION['user_time']		= $data[0]['user_time'];
-				$_SESSION['user_money']		= $data[0]['user_money'];
-				$_SESSION['admin_today']	= $data[0]['admin_today'];
-				$_SESSION['mod_id']			= $data[0]['mod_id'];
+				$_SESSION['user_id']	= $data[0]['user_id'];
+				$_SESSION['user_login']	= $data[0]['user_login'];
+				$_SESSION['user_name']	= $data[0]['user_name'];
+				$_SESSION['user_time']	= $data[0]['user_time'];
+				$_SESSION['user_money']	= $data[0]['user_money'];
+				$_SESSION['user_admin'] = $data[0]['user_admin'];
+				$_SESSION['mod_id']		= $data[0]['mod_id'];
 				echo "<meta http-equiv=refresh content=0;URL=index2.php>";
 			}
 			$interface::disconnect();

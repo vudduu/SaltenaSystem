@@ -1,5 +1,5 @@
 body{
-	background: #d1d1d1;
+	background: url('../../img/a.jpg');
 }
 h1{
 	font-family: font-family: "Hoefler Text", serif;
@@ -32,10 +32,15 @@ td, th{
 	height: 50px;
 	margin: 10px auto;
 }
-
+.trans{
+	background: #ffffff;
+	/* for IE */
+	filter:alpha(opacity=80);
+	/* CSS3 standard */
+	opacity:0.8;
+}
 /* header */
 #top_container{
-	background: #fff5f5;
 	width: 900px;
 	height: 150px;
 	margin: 0px auto 0px auto;
@@ -70,7 +75,6 @@ td, th{
 
 /* body */
 #body_container{
-	background: #ffffff;
 	width: 780px;
 	margin: 0px auto 0px auto;
 }
@@ -110,7 +114,6 @@ td, th{
 
 /* message */
 #message_div{
-	background: #555555;
 	clear: both;
 	width: 900px;
 	height: 70px;
@@ -140,7 +143,6 @@ td, th{
 
 /* footer */
 #footer_container{
-	background: #aaaaaa;
 	clear: both;
 	width: 900px;
 	height: 50px;

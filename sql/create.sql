@@ -19,6 +19,7 @@ CREATE TABLE users (
 	user_pass VARCHAR( 10 ) NULL ,
 	user_date DATE NULL ,
 	user_money INT NULL DEFAULT '0' ,
+	user_admin INT NULL DEFAULT '0' ,
 	mode_id INT NOT NULL ,
 	FOREIGN KEY (mode_id) REFERENCES modes(mode_id)
 ) ENGINE = MYISAM;

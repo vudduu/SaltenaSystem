@@ -1,10 +1,3 @@
-function defaultjs(){
-	//obtainTicon1();
-	//obtainTicon2();
-	//obtainTicon3();
-	//obtainTicon4();
-}
-
 /********************* PEDIDOS *********************/
 function add_pollo(){
 	var num = document.getElementById("pollo").innerHTML.split(" ")[0];
@@ -37,7 +30,7 @@ function res_hoja(){
 	}
 }
 
-function saveOrder(){
+function saveOrder(user_id){
 	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -46,14 +39,13 @@ function saveOrder(){
 	}
 	xmlhttp.onreadystatechange=function(){
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById("messages").innerHTML = xmlhttp.responseText;
+			showMessage(xmlhttp.responseText);
 		}
 	}
 	numPollo = document.getElementById("pollo").innerHTML.split(" ")[0];
 	numCarne = document.getElementById("carne").innerHTML.split(" ")[0];
 	numHoja = document.getElementById("hoja").innerHTML.split(" ")[0];
-	user_id = document.getElementById("user_id").innerHTML;
-	xmlhttp.open("GET", "queries.php?pollo="+numPollo+"&carne="+numCarne+"&hoja="+numHoja+"&user_id="+user, true);
+	xmlhttp.open("GET", "query_save_order.php?pollo="+numPollo+"&carne="+numCarne+"&hoja="+numHoja+"&user_id="+user_id, true);
 	xmlhttp.send();
 }
 
@@ -77,65 +69,3 @@ function showUser(){
 	xmlhttp.send();
 }
 
-
-
-function obtainTicon1(){
-	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else{// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function(){
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById("coderoadin").innerHTML = xmlhttp.responseText;
-		}
-	}
-	xmlhttp.open("GET", "http://10.100.1.9:8080/ticon/login/getUsersList?company=CodeRoad&status=In", true);
-	xmlhttp.send();
-}
-function obtainTicon2(){
-	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else{// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function(){
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById("coderoadout").innerHTML = xmlhttp.responseText;
-		}
-	}
-	xmlhttp.open("GET", "http://10.100.1.9:8080/ticon/login/getUsersList?company=CodeRoad&status=Out", true);
-	xmlhttp.send();
-}
-function obtainTicon3(){
-	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else{// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function(){
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById("lazarin").innerHTML = xmlhttp.responseText;
-		}
-	}
-	xmlhttp.open("GET", "http://10.100.1.9:8080/ticon/login/getUsersList?company=Lazar&status=In", true);
-	xmlhttp.send();
-}
-function obtainTicon4(){
-	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else{// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function(){
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById("lazarout").innerHTML = xmlhttp.responseText;
-		}
-	}
-	xmlhttp.open("GET", "http://10.100.1.9:8080/ticon/login/getUsersList?company=Lazar&status=Out", true);
-	xmlhttp.send();
-}
