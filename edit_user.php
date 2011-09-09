@@ -39,7 +39,7 @@ $interface::connect();
 					if($_POST['user_login'] == null || !isset($_POST['user_login'])){ echo $_SESSION['user_login']; }
 					else{ echo $_POST['user_login']; }
 					?>" ></td></tr>
-				<tr><td>Password *:</td><td><input name = "password1" type = "password" value=""></td></tr>
+				<tr><td>Password *:</td><td><input name = "password1" type = "password" value="" size="10" maxlength="10"></td></tr>
 				<tr><td>Confirm Password *:</td><td><input name = "password2" type = "password" value=""></td></tr>
 				<tr><td>Name *:</td><td><input name = "user_name" type = "text" value="<?php
 					if($_POST['user_name'] == null || !isset($_POST['user_name'])){ echo $_SESSION['user_name']; }
@@ -48,7 +48,7 @@ $interface::connect();
 				<tr><td>Date of Birth *:</td><td><input name = "user_date" type = "text" value="<?php
 					if($_POST['user_date'] == null || !isset($_POST['user_date'])){ echo $_SESSION['user_date']; }
 					else{ echo $_POST['user_date']; }
-					?>" ></td></tr>
+					?>" >"YYYY-MM-DD"</td></tr>
 				<tr><td><input type = "submit" name = "submit" value = "Submit"/></td></tr>
 				</table>
 			</form>
@@ -77,6 +77,10 @@ $interface::connect();
 				echo "<b>The password confirmation is not equal.</b></br>";
 			}
 			else{
+				$_POST['user_name'] = filter_var($_POST['user_name'], FILTER_SANITIZE_STRING);
+				$_POST['password1'] = filter_var($_POST['password1'], FILTER_SANITIZE_STRING);
+				$_POST['user_login'] = filter_var($_POST['user_login'], FILTER_SANITIZE_STRING);
+				$_POST['user_date'] = filter_var($_POST['user_date'], FILTER_SANITIZE_STRING);
 				$interface = new Conection();
 				$interface::connect();
 				$sql = "update users set ";
