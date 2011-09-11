@@ -33,20 +33,42 @@ td, th{
 	opacity:0.8; /*CSS3 standard*/
 }
 
-/* header */
-#top_container{
-	width: 900px;
-	height: 150px;
-	margin: 0px auto 0px auto;
+/* === Structure Elements === */
+#container{
+	width: 960px;
+	margin: 0px auto;
 }
-#top_container h4{
+#header_container{
+	width: 960px;
+	height: 150px;
+	margin: 0px auto;
+}
+#navigation{
+	width: 960px;
+	height: 76px;
+	margin: 0px auto;
+}
+#content_container{
+	width: 960px;
+	margin: 0px auto;
+}
+#footer_container{
+	width: 960px;
+	margin: 0px auto;
+}
+#clear{
+	clear: both;
+}
+
+/* Header */
+#header_container h4{
 	margin: 0px 0px 10px 0px;
 }
-#top_container h2{
+#header_container h2{
 	margin: 20px 0px 0px 0px;
 }
 #top_left{
-	width: 190px;
+	width: 220px;
 	height: 140px;
 	padding: 10px 0px 0px 10px;
 	float: left;
@@ -60,18 +82,45 @@ td, th{
 	text-align: center;
 }
 #top_right{
-	width: 190px;
+	width: 220px;
 	height: 140px;
 	padding: 10px 10px 0px 0px;
-	float: left;
+	float: right;
 	text-align: right;
 }
 
-/* body */
-#body_container{
-	width: 780px;
-	margin: 0px auto 0px auto;
+/* Navigation */
+ul#nav {
+	float: left;
+	height: 76px;
+	font: 14pt Helvetica, Verdana, sans-serif;
+	margin: 18px 0px 0px 0px;
 }
+ul#nav li{
+	cursor: pointer;
+	text-decoration: none;
+	float: left;
+	margin: 0px 0px 0px 10px;
+	height: 59px;
+	padding-left: 10px;
+	background: url(../../img/lay.png) no-repeat left top;
+}
+ul#nav li a{
+	height: 59px;
+	color: #f3f4f5;
+	float: left;
+	text-decoration: none;
+}
+ul#nav li a:hover{
+	color: #e38219;
+}
+ul#nav li a.active{
+	height: 59px;
+	color: #e38219;
+	background: url(../../img/lay1.png) no-repeat 50% 100%;
+}
+
+/* Products */
 .product{
 	background: url(../../img/body_prod.png) no-repeat;
 	width: 240px;
@@ -106,12 +155,16 @@ td, th{
 	background: url(../../img/button_minus.png) no-repeat;
 }
 #txtHint{
-	width: 900px;
-	height: 50px;
+	width: 960px;
 	margin: auto;
 }
+#txtHint table{
+	width: 800px;
+	margin: 10px 80px 10px 80px;
+	float: left;
+}
 
-/* message */
+/* Message */
 #message_div{
 	clear: both;
 	width: 900px;
@@ -140,11 +193,6 @@ td, th{
 	float: right;
 }
 
-/* footer */
-#footer_container{
-	clear: both;
-	width: 900px;
-	height: 50px;
-	margin: 0px auto;
-}
+/* Footer */
+
 
