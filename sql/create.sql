@@ -70,9 +70,11 @@ CREATE TABLE orders (
 ) ENGINE = MYISAM;
 
 CREATE TABLE times_in_out (
-	user_id VARCHAR( 10 ) NOT NULL PRIMARY KEY ,
+	user_id VARCHAR( 10 ) NOT NULL ,
 	time_mark TIME NOT NULL ,
-	time_date DATE NULL ,
-	FOREIGN KEY (user_id) REFERENCES users(user_id)
+	time_date DATE NOT NULL ,
+	in_or_out TINYINT(1) NOT NULL ,
+	FOREIGN KEY (user_id) REFERENCES users(user_id) ,
+	PRIMARY KEY (user_id, time_mark, time_date)
 ) ENGINE = MYISAM;
 

@@ -14,6 +14,7 @@ if($_GET['usersTable'] == 1) {
 	$totalCarne = 0;
 	$totalHoja = 0;
 	$total = 0;
+	echo "Tabla de Pedidos de saltenyas";
 	echo "<table border='1'>";
 	echo "<tr><th>Name</th><th>Pollo</th><th>Carne</th><th>Hoja</th><th>Money</th></tr>";
 	for($i=0; $i<sizeof($table) ;$i++){
