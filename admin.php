@@ -22,7 +22,7 @@ if(isset($_SESSION['user_id'])){
 					<h4>Balance: <?php echo $_SESSION['user_money'] ?>$</h4>
 				</div>
 				<div id="top_center">
-					<h1>Saltena System</h1>
+					<img class="logo" src="img/logo.png" alt="Saltena System">
 					<h2><a href="index2.php">Ticon</a></h2>
 				</div>
 				<div id="top_right">
