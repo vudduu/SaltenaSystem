@@ -22,7 +22,6 @@ $interface::connect();
 			</div>
 			<div id="top_center">
 				<img class="logo" src="img/logo.png" alt="Saltena System">
-				<?php if(isset($_SESSION['user_login'])) echo "<h2><a href='index2.php'>Ticon</a></h2>"; ?>
 			</div>
 			<div id="top_right">
 				<h4><a href="logout.php">Logout</a></h4>
@@ -34,8 +33,7 @@ $interface::connect();
 			<ul id="nav">
 				<li><a href="index2.php" class="active">Ticon</a></li>
 				<li><a href="#">Activities</a></li>
-				<li><a href="index3.php">Pedidos</a></li>
-				<li><a href="#">Orders</a></li>
+				<li><a href="index3.php">Orders</a></li>
 				<li><a href="#">Questions</a></li>
 				<li><a href="#">Wall of Honor</a></li>
 			</ul>

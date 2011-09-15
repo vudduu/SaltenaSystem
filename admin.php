@@ -23,20 +23,18 @@ if(isset($_SESSION['user_id'])){
 				</div>
 				<div id="top_center">
 					<img class="logo" src="img/logo.png" alt="Saltena System">
-					<h2><a href="index2.php">Ticon</a></h2>
 				</div>
 				<div id="top_right">
 					<h4><a href="logout.php">Logout</a></h4>
-					<h4><span id="user_id"><?php echo $_SESSION['user_login'] ?></span></h4>
-					<h4><a href="index3.php">Administrator</a></h4>
+					<h4><a href="edit_user.php"><?php echo $_SESSION['user_login'] ?></a></h4>
+					<?php if($_SESSION['user_admin'] == 1){ echo "<h4><a href='admin.php' >Administrator</a></h4>"; } ?>
 				</div>
 			</div>
 			<div id="navigation">
 				<ul id="nav">
-					<li><a href="#" class="active">Ticon</a></li>
+					<li><a href="index2.php">Ticon</a></li>
 					<li><a href="#">Activities</a></li>
-					<li><a href="#">Pedidos</a></li>
-					<li><a href="#">Orders</a></li>
+					<li><a href="index3.php">Orders</a></li>
 					<li><a href="#">Questions</a></li>
 					<li><a href="#">Wall of Honor</a></li>
 				</ul>

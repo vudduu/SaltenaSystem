@@ -24,7 +24,6 @@ $interface::connect();
 				</div>
 				<div id="top_center">
 					<img class="logo" src="img/logo.png" alt="Saltena System">
-					<?php if(isset($_SESSION['user_login'])) echo "<h2><a href='index2.php'>Ticon</a></h2>"; ?>
 				</div>
 				<div id="top_right">
 					<h4><a href="logout.php">Logout</a></h4>
@@ -36,15 +35,13 @@ $interface::connect();
 				<ul id="nav">
 					<li><a href="index2.php">Ticon</a></li>
 					<li><a href="#">Activities</a></li>
-					<li><a href="index3.php" class="active">Pedidos</a></li>
-					<li><a href="#">Orders</a></li>
+					<li><a href="index3.php" class="active">Orders</a></li>
 					<li><a href="#">Questions</a></li>
 					<li><a href="#">Wall of Honor</a></li>
 				</ul>
 			</div>
 		
 			<div id="content_container" class="trans">
-<div id="txtHint">
 				<div class="product">
 					<h2>Pollo</h2>
 					<a class="button_plus" href="#" onClick="add_pollo();"></a>
@@ -90,11 +87,11 @@ $interface::connect();
 					?> de Hoja</span>
 					<a class="button_minus" href="#" onClick="res_hoja();"></a>
 				</div>
-</div>
-<div id="clear"></div>
+				<div id="clear">
+				</div>
 			</div>
 			<div id="message_div" class="trans">
-			<a href="#" name = "Save" id="Save" onClick="saveOrder(<?php echo $_SESSION['user_id']; ?>);">Save Order</a>
+				<a href="#" name = "Save" id="Save" onClick="saveOrder(<?php echo $_SESSION['user_id']; ?>);">Save Order</a>
 				<span id="messages" ></span>
 			</div>
 			<!-- <div id="footer_container"></div> -->

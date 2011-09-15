@@ -52,6 +52,12 @@ td, th{
 	width: 960px;
 	margin: 0px auto;
 }
+#message_div{
+	clear: both;
+	width: 960px;
+	height: 70px;
+	margin: 10px auto;
+}
 #footer_container{
 	width: 960px;
 	margin: 0px auto;
@@ -92,9 +98,9 @@ td, th{
 /* Navigation */
 ul#nav {
 	float: left;
-	height: 76px;
+	height: 59px;
 	font: 14pt Helvetica, Verdana, sans-serif;
-	margin: 18px 0px 0px 0px;
+	margin: 15px 0px 0px 0px;
 }
 ul#nav li{
 	cursor: pointer;
@@ -125,7 +131,7 @@ ul#nav li a.active{
 	background: url(../../img/body_prod.png) no-repeat;
 	width: 240px;
 	height: 384px;
-	margin: 7px 10px 0px 10px;
+	margin: 10px 10px 10px 10px;
 	float: left;
 }
 .product h2{
@@ -165,12 +171,6 @@ ul#nav li a.active{
 }
 
 /* Message */
-#message_div{
-	clear: both;
-	width: 900px;
-	height: 70px;
-	margin: 0px auto;
-}
 #message_div a:link {text-decoration: none}
 #message_div a:visited {text-decoration: none}
 #message_div a:active {text-decoration: none}
