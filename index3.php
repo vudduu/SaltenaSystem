@@ -91,7 +91,7 @@ $interface::connect();
 				</div>
 			</div>
 			<div id="message_div" class="trans">
-				<a href="#" name = "Save" id="Save" onClick="saveOrder(<?php echo $_SESSION['user_id']; ?>);">Save Order</a>
+				<a href="#" name = "Save" id="Save" onClick="saveOrder(<?php echo $_SESSION['user_id'].", ".$_SESSION['user_pass']; ?>);">Save Order</a>
 				<span id="messages" ></span>
 			</div>
 			<!-- <div id="footer_container"></div> -->

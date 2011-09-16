@@ -18,6 +18,19 @@ class Users{
 		return $interface::queryTable($sql);
 	}
 
+	function money_set($interface, $id, $mount){
+		$sql = "update users set user_money = '".$mount."' ";
+		$sql.= "where user_id = '".$id."'";
+		$interface::queryExe($sql);
+	}
+
+	function money_get($interface, $id){
+		$sql = "select user_money ";
+		$sql.= "where user_id = '".$id."'";
+		$table = $interface::queryTable($sql);
+		return $table[0][0];
+	}
+
 	function mark_in_out($interface, $id, $in_or_out){
 		$date = date("Y-m-d");
 		$time = date("H:i:s");

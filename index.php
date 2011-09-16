@@ -62,6 +62,7 @@ include("conection.php");
 					echo "<b>The password is wrong</b>";
 				}
 				else{
+					$_SESSION['user_pass']  = $data[0]['user_pass'];
 					$_SESSION['user_id']	= $data[0]['user_id'];
 					$_SESSION['user_login']	= $data[0]['user_login'];
 					$_SESSION['user_name']	= $data[0]['user_name'];

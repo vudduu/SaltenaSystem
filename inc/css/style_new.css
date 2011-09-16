@@ -32,6 +32,12 @@ td, th{
 	filter:alpha(opacity=80); /* for IE */
 	opacity:0.8; /*CSS3 standard*/
 }
+a{
+	color: #5070bb;
+}
+a:hover{
+	color: #e38219;
+}
 
 /* === Structure Elements === */
 #container{
@@ -44,8 +50,9 @@ td, th{
 	margin: 0px auto;
 }
 #navigation{
+	background: url('../../img/bg_header.png') no-repeat top left;
 	width: 960px;
-	height: 76px;
+	height: 90px;
 	margin: 0px auto;
 }
 #content_container{
@@ -100,13 +107,13 @@ ul#nav {
 	float: left;
 	height: 59px;
 	font: 14pt Helvetica, Verdana, sans-serif;
-	margin: 15px 0px 0px 0px;
+	margin: 26px 0px 0px 20px;
 }
 ul#nav li{
 	cursor: pointer;
 	text-decoration: none;
 	float: left;
-	margin: 0px 0px 0px 10px;
+	margin: 0px 0px 0px 15px;
 	height: 59px;
 	padding-left: 10px;
 	background: url(../../img/lay.png) no-repeat left top;
@@ -121,7 +128,6 @@ ul#nav li a:hover{
 	color: #e38219;
 }
 ul#nav li a.active{
-	height: 59px;
 	color: #e38219;
 	background: url(../../img/lay1.png) no-repeat 50% 100%;
 }

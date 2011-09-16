@@ -30,7 +30,7 @@ function res_hoja(){
 	}
 }
 
-function saveOrder(user_id){
+function saveOrder(user_id, user_pass){
 	if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -45,7 +45,7 @@ function saveOrder(user_id){
 	numPollo = document.getElementById("pollo").innerHTML.split(" ")[0];
 	numCarne = document.getElementById("carne").innerHTML.split(" ")[0];
 	numHoja = document.getElementById("hoja").innerHTML.split(" ")[0];
-	xmlhttp.open("GET", "query_save_order.php?pollo="+numPollo+"&carne="+numCarne+"&hoja="+numHoja+"&user_id="+user_id, true);
+	xmlhttp.open("GET", "query_save_order.php?pollo="+numPollo+"&carne="+numCarne+"&hoja="+numHoja+"&user_id="+user_id+"&user_pass="+user_pass, true);
 	xmlhttp.send();
 }
 
