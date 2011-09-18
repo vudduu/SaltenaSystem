@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['user_id'])){
-	echo "<meta http-equiv=refresh content=0;URL=index2.php>";
+	echo "<meta http-equiv=refresh content=0;URL=ticon.php>";
 }
 
 $useragent=$_SERVER['HTTP_USER_AGENT'];
@@ -62,15 +62,14 @@ include("conection.php");
 					echo "<b>The password is wrong</b>";
 				}
 				else{
-					$_SESSION['user_pass']  = $data[0]['user_pass'];
 					$_SESSION['user_id']	= $data[0]['user_id'];
-					$_SESSION['user_login']	= $data[0]['user_login'];
 					$_SESSION['user_name']	= $data[0]['user_name'];
-					$_SESSION['user_time']	= $data[0]['user_time'];
-					$_SESSION['user_money']	= $data[0]['user_money'];
+					$_SESSION['user_login']	= $data[0]['user_login'];
+					$_SESSION['user_pass']  = $data[0]['user_pass'];
+					$_SESSION['user_date']	= $data[0]['user_date'];
 					$_SESSION['user_admin'] = $data[0]['user_admin'];
-					$_SESSION['mod_id']		= $data[0]['mod_id'];
-					echo "<meta http-equiv=refresh content=0;URL=index2.php>";
+					$_SESSION['mode_id']	= $data[0]['mode_id'];
+					echo "<meta http-equiv=refresh content=0;URL=ticon.php>";
 				}
 				$interface::disconnect();
 			}

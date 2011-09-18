@@ -1,9 +1,6 @@
 <?php
 session_start();
 if(isset($_SESSION['user_id'])){
-	if($_SESSION['user_admin'] != 1){
-		echo "<meta http-equiv=refresh content=2;URL=index2.php>";
-	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +11,7 @@ if(isset($_SESSION['user_id'])){
 		<link href="inc/css/style_new.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="inc/js/functions.js"></script>
 	</head>
-	<body onload="showUser(); setInterval('showUser()', 1000)" >
+	<body>
 		<div id="container">
 			<div id="header_container" class="trans">
 				<div id="top_left">
@@ -36,11 +33,11 @@ if(isset($_SESSION['user_id'])){
 					<li><a href="activities.php">Activities</a></li>
 					<li><a href="orders.php">Orders</a></li>
 					<li><a href="questions.php">Questions</a></li>
-					<li><a href="wall_of_honor.php">Wall of Honor</a></li>
+					<li><a href="wall_of_honor.php" class="active">Wall of Honor</a></li>
 				</ul>
 			</div>
 			<div id="content_container" class="trans">
-				<div id="txtHint"></div>
+				<h1>Page on construction</h1>
 				<div id="clear"></div>
 			</div>
 			<div id="footer_container" class "trans">
@@ -50,8 +47,6 @@ if(isset($_SESSION['user_id'])){
 </html>
 <?php
 }
-else{
-	echo "<h1>You are not administrator! ^_^<h1>";
-}
+else{ echo "<meta http-equiv=refresh content=0;URL=index.php>"; }
 ?>
 

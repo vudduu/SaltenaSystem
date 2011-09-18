@@ -6,6 +6,7 @@ DROP TABLE activities_products;
 DROP TABLE preferences;
 DROP TABLE orders;
 DROP TABLE times_in_out;
+DROP TABLE users_money;
 
 CREATE TABLE modes(
 	mode_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
@@ -15,13 +16,20 @@ CREATE TABLE modes(
 CREATE TABLE users (
 	user_id VARCHAR( 10 ) NOT NULL PRIMARY KEY ,
 	user_name VARCHAR( 30 ) NOT NULL ,
-	user_login VARCHAR( 10 ) NULL ,
-	user_pass VARCHAR( 10 ) NULL ,
+	user_login VARCHAR( 20 ) NULL ,
+	user_pass VARCHAR( 30 ) NULL ,
 	user_date DATE NULL ,
-	user_money INT NULL DEFAULT '0' ,
 	user_admin INT NULL DEFAULT '0' ,
 	mode_id INT NOT NULL ,
 	FOREIGN KEY (mode_id) REFERENCES modes(mode_id)
+) ENGINE = MYISAM;
+
+CREATE TABLE users_money (
+	user_id VARCHAR( 10 ) NOT NULL ,
+	um_date DATE NOT NULL ,
+	money INT NULL DEFAULT '0' ,
+	FOREIGN KEY (user_id) REFERENCES users(user_id) ,
+	PRIMARY KEY (user_id, um_date)
 ) ENGINE = MYISAM;
 
 CREATE TABLE products (

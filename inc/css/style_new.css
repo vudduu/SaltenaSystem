@@ -160,6 +160,14 @@ ul#nav li a.active{
 	width: 54px;
 	height: 50px;
 }
+.product button{
+	margin: 35px auto 35px 95px;
+	float: left;
+	cursor:pointer;
+    width: 54px;
+    height: 50px;
+    border: none;
+}
 .button_plus{
 	background: url(../../img/button_plus.png) no-repeat;
 }

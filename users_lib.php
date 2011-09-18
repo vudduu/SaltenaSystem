@@ -18,17 +18,25 @@ class Users{
 		return $interface::queryTable($sql);
 	}
 
-	function money_set($interface, $id, $mount){
-		$sql = "update users set user_money = '".$mount."' ";
-		$sql.= "where user_id = '".$id."'";
+	function money_set($interface, $id, $mount) {
+		if(0 >= sizeof($interface::queryTable("select money from users_money where user_id = '".$id."' and um_date = '".date("Y-m-d")."'"))){
+			$sql = "insert into users_money (user_id ,um_date ,money) values ('".$id."',  '".date("Y-m-d")."',  '".$mount."')";
+		}
+		else{
+			$sql = "update users_money set money = ".$mount." where user_id = '".$id."' and um_date = '".date("Y-m-d")."'";
+		}
+		$interface::queryExe($sql);
+	}
+
+	function money_add($interface, $id, $mount) {
+		$sql = "update users_money set money = money+".$mount." where user_id = '".$id."' and um_date = '".date("Y-m-d")."'";
 		$interface::queryExe($sql);
 	}
 
 	function money_get($interface, $id){
-		$sql = "select user_money ";
-		$sql.= "where user_id = '".$id."'";
-		$table = $interface::queryTable($sql);
-		return $table[0][0];
+		$sql = "select money from users_money where user_id = '".$id."' and um_date = '".date("Y-m-d")."'";
+		$table = $interface::query($sql);
+		return $table[0];
 	}
 
 	function mark_in_out($interface, $id, $in_or_out){

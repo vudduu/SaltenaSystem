@@ -31,11 +31,11 @@ $interface::connect();
 		</div>
 		<div id="navigation">
 			<ul id="nav">
-				<li><a href="index2.php" class="active">Ticon</a></li>
-				<li><a href="#">Activities</a></li>
-				<li><a href="index3.php">Orders</a></li>
-				<li><a href="#">Questions</a></li>
-				<li><a href="#">Wall of Honor</a></li>
+				<li><a href="ticon.php" class="active" >Ticon</a></li>
+				<li><a href="activities.php">Activities</a></li>
+				<li><a href="orders.php">Orders</a></li>
+				<li><a href="questions.php">Questions</a></li>
+				<li><a href="wall_of_honor.php">Wall of Honor</a></li>
 			</ul>
 		</div>
 	
