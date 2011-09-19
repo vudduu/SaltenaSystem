@@ -33,18 +33,23 @@ class Users{
 		$interface::queryExe($sql);
 	}
 
-	function money_get($interface, $id){
-		$sql = "select money from users_money where user_id = '".$id."' and um_date = '".date("Y-m-d")."'";
+	function money_get($interface, $id, $d_begin = "none", $d_end = "none"){
+		if($d_begin == "none") $d_begin = date("Y-m-d");
+		if($d_end == "none") $d_end = date("Y-m-d");
+		$sql = "select sum(money) from users_money where user_id = '".$id."' and um_date between '".$d_begin."' and '".$d_end."' group by user_id";
 		$table = $interface::query($sql);
 		return $table[0];
 	}
 
-	function mark_in_out($interface, $id, $in_or_out){
+	function mark_in_out($interface, $id, $in_or_out){ // in = 0, out = 1
 		$date = date("Y-m-d");
 		$time = date("H:i:s");
 		$sql = "insert into times_in_out (user_id, time_mark, time_date, in_or_out) ";
 		$sql.= "values ('".$id."', '".$time."', '".$date."', ".$in_or_out.")";
 		$interface::queryExe($sql);
+		$table = $interface::queryTable("select user_name from users where user_id = '".$id."'");
+		if($in_or_out == '0') echo "<h4>Ingreso ".$table[0][0]."</h4>";
+		else echo "<h4>Salio ".$table[0][0]."</h4>";
 	}
 	
 	function user_in_out($interface, $id){

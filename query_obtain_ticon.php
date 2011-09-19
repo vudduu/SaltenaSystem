@@ -1,6 +1,6 @@
 <?php
 include("conection.php");
-include("users.php");
+include("users_lib.php");
 
 $interface = new Conection();
 $interface::connect();

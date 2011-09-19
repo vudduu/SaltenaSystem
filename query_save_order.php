@@ -8,6 +8,7 @@ $interface = new Conection();
 $interface::connect();
 $orders_interface = new Orders();
 $users_interface = new Users();
+
 $data = $interface::queryTable("select * from users where user_id = '".$_GET['user_id']."'");
 
 if(sizeof($data) > 0){

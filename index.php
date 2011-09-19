@@ -11,6 +11,12 @@ if(preg_match('/android.+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|f
 }
 
 include("conection.php");
+include("users_lib.php");
+
+$users_interface = new Users();
+$interface = new Conection();
+$interface::connect();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,8 +45,7 @@ include("conection.php");
 			</div>
 			<?php
 			if(isset($_POST['submit'])){
-				$interface = new Conection();
-				$interface::connect();
+				
 				$data = $interface::queryTable("select * from users where user_login = '".$_POST['user']."'");
 				if(sizeof($data) <= 0){
 					$data = $interface::queryTable("select * from users where user_id = '".$_POST['user']."'");
@@ -69,12 +74,14 @@ include("conection.php");
 					$_SESSION['user_date']	= $data[0]['user_date'];
 					$_SESSION['user_admin'] = $data[0]['user_admin'];
 					$_SESSION['mode_id']	= $data[0]['mode_id'];
+					$_SESSION['user_money'] = $users_interface::money_get($interface, $_SESSION['user_id'], date("Y-m-00"));
 					echo "<meta http-equiv=refresh content=0;URL=ticon.php>";
 				}
-				$interface::disconnect();
 			}
 			?>
 		</div>
 	</body>
 </html>
-
+<?php
+$interface::disconnect();
+?>

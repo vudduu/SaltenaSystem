@@ -1,6 +1,6 @@
 <?php
 include("conection.php");
-include("users.php");
+include("users_lib.php");
 $interface = new Conection();
 $interface::connect();
 $users_interface = new Users();
@@ -32,18 +32,11 @@ $users_interface = new Users();
 						if($_POST['user_id'] != ""){
 							if($users_interface::exist_this_id($interface, $_POST['user_id'])){
 								$res = $users_interface::user_in_out($interface, $_POST['user_id']);
-								if($res[0] == "NULL"){
+								if($res[0] == "NULL" || $res['in_or_out'] == '1'){
 									$users_interface::mark_in_out($interface, $_POST['user_id'], '0');
 								}
 								else{
-									if($res['in_or_out'] == '1'){
-										$users_interface::mark_in_out($interface, $_POST['user_id'], '0');
-										echo "<h4>Ingreso</h4>";
-									}
-									else{
-										$users_interface::mark_in_out($interface, $_POST['user_id'], '1');
-										echo "<h4>Salio</h4>";
-									}
+									$users_interface::mark_in_out($interface, $_POST['user_id'], '1');
 								}
 							}
 							else{

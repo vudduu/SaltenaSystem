@@ -1,8 +1,8 @@
 <?php
 session_start();
 if(isset($_SESSION['user_id'])){
-	include("conection.php");
-	//include("header.php");
+
+include("conection.php");
 $interface = new Conection();
 $interface::connect();
 ?>
@@ -20,7 +20,7 @@ $interface::connect();
 			<div id="header_container" class="trans">
 				<div id="top_left">
 					<h4>Time: <?php echo date("H:i:s"); ?></h4>
-					<h4>Balance: <?php echo $_SESSION['user_money'] ?>$</h4>
+					<h4>Balance: <?php echo $_SESSION['user_money']; ?>$</h4>
 				</div>
 				<div id="top_center">
 					<img class="logo" src="img/logo.png" alt="Saltena System">
@@ -55,11 +55,10 @@ $interface::connect();
 						}
 					?> de Pollo</span>
 					<button type="button" class="button_minus" onClick="res_pollo();" ></button>
-					<a class="button_minus" href="#" onClick="res_pollo();"></a>
 				</div>
 				<div class="product">
 					<h2>Carne</h2>
-					<a class="button_plus" href="#" onClick="add_carne();"></a>
+					<button type="button" class="button_plus" onClick="add_carne();" ></button>
 					<span class="count" name="carne" id="carne">
 					<?php
 						$table = $interface::queryTable("select * from orders where user_id='".$_SESSION['user_id']."' and prod_id=2 and ord_date='".date("Y-m-d")."'");
@@ -70,11 +69,11 @@ $interface::connect();
 							echo "0";
 						}
 					?> de Carne</span>
-					<a class="button_minus" href="#" onClick="res_carne();"></a>
+					<button type="button" class="button_minus" onClick="res_carne();" ></button>
 				</div>
 				<div class="product">
 					<h2>Hoja</h2>
-					<a class="button_plus" href="#" onClick="add_hoja();"></a>
+					<button type="button" class="button_plus" onClick="add_hoja();" ></button>
 					<span class="count" name="hoja" id="hoja">
 					<?php
 						$table = $interface::queryTable("select * from orders where user_id='".$_SESSION['user_id']."' and prod_id=3 and ord_date='".date("Y-m-d")."'");
@@ -85,13 +84,13 @@ $interface::connect();
 							echo "0";
 						}
 					?> de Hoja</span>
-					<a class="button_minus" href="#" onClick="res_hoja();"></a>
+					<button type="button" class="button_minus" onClick="res_hoja();" ></button>
 				</div>
 				<div id="clear">
 				</div>
 			</div>
 			<div id="message_div" class="trans">
-				<a href="#" name = "Save" id="Save" onClick="saveOrder(<?php echo $_SESSION['user_id'].",'".$_SESSION['user_pass']."'"; ?>);">Save Order</a>
+				<button type="button" name = "Save" id="Save" onClick="saveOrder(<?php echo $_SESSION['user_id'].",'".$_SESSION['user_pass']."'"; ?>);" >Save Order</button>
 				<span id="messages" ></span>
 			</div>
 			<!-- <div id="footer_container"></div> -->
