@@ -32,6 +32,7 @@ if(isset($_SESSION['user_id'])){
 					<li><a href="ticon.php">Ticon</a></li>
 					<li><a href="activities.php">Activities</a></li>
 					<li><a href="orders.php">Orders</a></li>
+					<li><a href="my_orders.php" >My Orders</a></li>
 					<li><a href="questions.php">Questions</a></li>
 					<li><a href="wall_of_honor.php" class="active">Wall of Honor</a></li>
 				</ul>

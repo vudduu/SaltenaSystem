@@ -41,6 +41,21 @@ class Users{
 		return $table[0];
 	}
 
+	function list_money_by_day($interface, $id){
+		$sql = "select um_date, money from users_money ";
+		$sql.= "where user_id = '".$id."' ";
+		return $interface::queryTable($sql);
+	}
+
+	function list_orders_today($interface, $id){
+		$sql = "select b.prod_name, a.ord_quantity, b.prod_cost from orders a, products b ";
+		$sql.= "where a.user_id =  '".$id."' ";
+		$sql.= "and a.ord_quantity != 0 ";
+		$sql.= "and a.prod_id = b.prod_id ";
+		$sql.= "and ord_date='".date("Y-m-d")."'";
+		return $interface::queryTable($sql);
+	}
+
 	function mark_in_out($interface, $id, $in_or_out){ // in = 0, out = 1
 		$date = date("Y-m-d");
 		$time = date("H:i:s");

@@ -36,6 +36,7 @@ $interface::connect();
 					<li><a href="ticon.php">Ticon</a></li>
 					<li><a href="activities.php">Activities</a></li>
 					<li><a href="orders.php" class="active">Orders</a></li>
+					<li><a href="my_orders.php" >My Orders</a></li>
 					<li><a href="questions.php">Questions</a></li>
 					<li><a href="wall_of_honor.php">Wall of Honor</a></li>
 				</ul>
